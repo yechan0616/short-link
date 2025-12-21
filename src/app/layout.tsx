@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 
 import { GlobalStyle } from 'styles'
+import Provider from './provider'
 
 import type { Metadata } from 'next'
 
@@ -19,8 +20,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
-        <GlobalStyle />
-        {children}
+        <Provider>
+          <GlobalStyle />
+          {children}
+        </Provider>
       </body>
     </html>
   )
