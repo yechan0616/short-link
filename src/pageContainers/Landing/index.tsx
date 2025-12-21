@@ -105,12 +105,6 @@ export const Container = styled.div`
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent; /* 모바일 탭 하이라이트 제거 */
 
-  /* 모바일 안전 영역 패딩 (노치 대응) */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-
   /* 내부 요소 이미지/링크 드래그 방지 보조 */
   img,
   a,
@@ -162,13 +156,11 @@ const SubTitle = styled.h2`
 const Countdown = styled.div`
   display: flex;
   align-items: flex-end;
+  justify-content: center;
   gap: clamp(10px, 3vw, 20px);
-
-  @media (max-width: 480px) {
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 8px;
-  }
+  /* 요구사항: 항상 한 줄(일자)로 표시 */
+  flex-wrap: nowrap;
+  white-space: nowrap;
 `
 
 const Unit = styled.div`

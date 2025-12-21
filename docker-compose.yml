@@ -1,7 +1,7 @@
 services:
   web:
     # 이미지는 환경변수 IMAGE로 주입 (예: ghcr.io/OWNER/short-link:latest)
-    image: ${IMAGE}
+    build: .
     container_name: short-link-web
     restart: unless-stopped
     ports:
@@ -9,5 +9,3 @@ services:
     environment:
       - NODE_ENV=production
     # 필요 시 앱 환경변수 파일(선택)
-    env_file:
-      - ./.env.production
